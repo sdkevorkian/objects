@@ -5,6 +5,14 @@
 	and a makeNoise property that prints out their noise.
 */
 
+var dog;
+
+var cat;
+
+var bird;
+
+var mouse;
+
 /*
 	Part 2: Let's use an array to hold all of these animals.
 	Create a new variable, animals, that contains the 4 animals we just created.
@@ -13,6 +21,11 @@
 
 	Hint: Use the makeNoise() function for each animal in the array
 */
+
+var animals = []; // replace "[]"
+
+// loop thru animals
+//	for each, call the function "makeNoise". Use dot notation.
 
 /*
 	Part 3: Let's see how hungry these animals get by adding a "hunger" property to them.
@@ -25,47 +38,61 @@
 	myObject['newPropertyName'] = newValue;
 */
 
+// your code here
+
 /*
 	Part 4: These animals should be able to walk. Let's add a new "walk" property to them.
-	For each animal, the "walk" property should be a function that prints out a string that
-	says they are walking. It should also subtract 1 from their "hunger" property.
+	
+	For each animal, the "walk" property should be a function that:
+	
+	1) prints out a string that says they are walking
+	2) It should also subtract 1 from their "hunger" property
 
 	For example, if I had a duck that looked like this:
-	var duck = {
-		name: 'duck',
-		hunger: 8
-	};
-	duck.walk();
-	// => "duck took a walk"
-//
-	console.log(duck.hunger);
-	// => 7
+	
+	
 
 	Hint: You will need the "this" keyword
 */
 
+var dog = {
+	name: 'dog',
+	hunger: 8,
+	walk: function() {
+	    // your code here
+	}
+};
+
+dog.walk(); // prints "dog took a walk"
+console.log(dog.hunger); // prints 7
+
 /*
 	Part 5: Now these animals can walk and talk by themselves, but they're quite lonely.
-	Let's add a "makeFriend" property to each animal. The "makeFriend" property will be a
-	method that takes another animal as an argument, and adds it to their "friend" property.
-
-	For example, if I had a duck and swan that looked like this:
-	var duck = {
-		name: 'duck'
-	};
-	var swan = {
-		name: 'swan',
-		noise: 'chirp quack'
-	};
-	duck.makeFriend(swan);
-
-	console.log(duck.friend);
-	// => { name: 'swan' }
-
-	duck.friend.makeNoise();
-	// => "chirp quack"
+	Let's add a "makeFriend" function to each animal. The "makeFriend" function will
+	take another animal as an argument, and pushes it to its "friends" property.
 */
 
+var duck = {
+	name: 'duck',
+	friends: []
+};
+var swan = {
+	name: 'swan',
+	noise: 'chirp quack',
+	friends: []
+};
+
+var makeFriend = function(newFriend) {
+	// your code here
+	// hint: use the 'this' keyword
+};
+
+duck.makeFriend = makeFriend;
+swan.makeFriend = makeFriend;
+
+duck.makeFriend(swan);
+console.log(duck.friends); // prints [{ name: 'swan' }]
+console.log(duck.friends[0].name);  // prints 'swan'
 
 /* BONUS
 This bonus will be a challenge! To complete this step, you'll need to do some Googling to look up things that have not yet been covered.
